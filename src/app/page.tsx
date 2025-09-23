@@ -26,7 +26,7 @@ function ProjectCards() {
             <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">SHIPPED ↗</span>
           </div>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Redesigning the underlying design system, creating web and mobile wireframing kits and supporting redesigning the UI as part of Figma's post-config relaunch of First Draft.
+            Redesigning the underlying design system, creating web and mobile wireframing kits and supporting redesigning the UI as part of Figma&apos;s post-config relaunch of First Draft.
           </p>
           <div className="flex items-center justify-between text-gray-500">
             <span className="font-medium">Figma</span>
@@ -53,7 +53,7 @@ function ProjectCards() {
             <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">SHIPPED ↗</span>
           </div>
           <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Improving the information architecture and parseability of Figma's notification feed with a visual redesign. This includes a scalable and robust system to support future notifications.
+            Improving the information architecture and parseability of Figma&apos;s notification feed with a visual redesign. This includes a scalable and robust system to support future notifications.
           </p>
           <div className="flex items-center justify-between text-gray-500">
             <span className="font-medium">Figma</span>
