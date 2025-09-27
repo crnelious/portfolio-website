@@ -1,6 +1,7 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 function ProjectCards() {
   const ref = useRef(null);
@@ -9,12 +10,13 @@ function ProjectCards() {
   return (
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* First Draft relaunch */}
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-        className="rounded-3xl overflow-hidden"
-      >
+      <Link href="/identity-research-labs">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          className="rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+        >
         <div className="bg-gradient-to-br from-purple-200 to-purple-300 h-64 flex items-center justify-center">
           <div className="bg-gray-200 w-80 h-48 rounded-lg flex items-center justify-center">
             <span className="text-gray-500 text-sm">First Draft Interface Image</span>
@@ -30,10 +32,11 @@ function ProjectCards() {
           </p>
           <div className="flex items-center justify-between text-gray-500">
             <span className="font-medium">Figma</span>
-            <span>2024</span>
+            <span>2025</span>
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </Link>
 
       {/* Notifications */}
       <motion.div
@@ -57,7 +60,7 @@ function ProjectCards() {
           </p>
           <div className="flex items-center justify-between text-gray-500">
             <span className="font-medium">Figma</span>
-            <span>2024</span>
+            <span>2025</span>
           </div>
         </div>
       </motion.div>
@@ -84,7 +87,7 @@ function ProjectCards() {
           </p>
           <div className="flex items-center justify-between text-gray-500">
             <span className="font-medium">Figma</span>
-            <span>2024</span>
+            <span>2019</span>
           </div>
         </div>
       </motion.div>
