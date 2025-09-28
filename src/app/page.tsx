@@ -66,12 +66,13 @@ function ProjectCards() {
       </motion.div>
 
       {/* ChromeOS PWA */}
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-        transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-        className="rounded-3xl overflow-hidden"
-      >
+      <Link href="/sneaker-access">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+        >
         <div className="bg-gradient-to-br from-yellow-400 to-orange-400 h-64 flex items-center justify-center">
           <div className="bg-gray-200 w-80 h-48 rounded-lg flex items-center justify-center">
             <span className="text-gray-500 text-sm">ChromeOS PWA Interface Image</span>
@@ -91,6 +92,7 @@ function ProjectCards() {
           </div>
         </div>
       </motion.div>
+      </Link>
     </div>
   );
 }
