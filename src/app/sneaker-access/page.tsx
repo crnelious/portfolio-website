@@ -391,7 +391,7 @@ export default function SneakerAccess() {
                 <span className="text-gray-400">brand identity</span>
               </h2>
             </div>
-            
+
             {/* Right Column - Description */}
             <div className="space-y-6">
               <p className="text-lg text-white leading-relaxed">
@@ -404,6 +404,108 @@ export default function SneakerAccess() {
           </div>
         </div>
       </div>
+
+      {/* Building a New Logo Section */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-4xl font-bold text-black mb-8">Building a new logo</h3>
+              <p className="text-lg text-gray-700 mb-16 max-w-2xl ml-auto">
+                To give the design a sense of regality, tradition, and a touch of modernity, I created a new logo.
+              </p>
+            </div>
+
+            {/* Logo Comparison - Old and New side by side */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
+              {/* Old Logo */}
+              <div className="text-left">
+                <div className="mb-6">
+                  <h4 className="text-xl font-bold text-black mb-2">LOGOS</h4>
+                  <p className="text-gray-600 text-sm">OLD</p>
+                </div>
+                <div className="w-full h-64 bg-gray-600 rounded-lg flex items-center justify-center">
+                  <span className="text-gray-500 text-sm">Old Logo</span>
+                </div>
+              </div>
+
+              {/* New Logo */}
+              <div className="text-left">
+                <div className="mb-6">
+                  <h4 className="text-xl font-bold text-black mb-2">LOGOS</h4>
+                  <p className="text-gray-600 text-sm">NEW</p>
+                </div>
+                <div className="w-full h-64 bg-gray-600 rounded-lg flex items-center justify-center">
+                  <span className="text-gray-500 text-sm">New Logo</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Wide Gray Box Below */}
+            <div className="w-full h-96 bg-gray-600 rounded-lg flex items-center justify-center">
+              <span className="text-gray-500 text-sm">Brand Guidelines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Design System Section */}
+      <div className="bg-black py-16">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+            <div>
+              <h2 className="text-6xl font-bold text-white leading-tight">
+                A Robust<br />
+                <span className="text-gray-400">Design System</span>
+              </h2>
+            </div>
+            <div className="space-y-6">
+              <p className="text-lg text-white leading-relaxed">
+                I created a comprehensive design system that goes beyond what made it into the final design. Everything follows WCAG AA accessibility guidelines so the experience is clear and inclusive even when the visuals are simple.
+              </p>
+              <p className="text-lg text-gray-400 italic">
+                I will be updating this soon with colors, typefaces, buttons, and text fields.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full bg-white rounded-3xl shadow-2xl p-12 flex items-center justify-center">
+            <span className="text-gray-500 text-sm">Design System Preview</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Final Outcome Section */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+            <div>
+              <h2 className="text-5xl font-bold text-black">Final Outcome</h2>
+            </div>
+            <div>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                I developed a website that resulted in a remarkable 90% increase in sales. Additionally, it successfully enhanced user retention and significantly reduced abandoned carts by over 95%.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full bg-gray-300 rounded-[40px] h-[32rem] flex items-center justify-center">
+            <span className="text-gray-500 text-sm">Final Outcome Mockup</span>
+          </div>
+        </div>
+      </div>
+      {/* Footer */}
+      <footer className="w-full px-8 sm:px-16 py-8 bg-white">
+        <div className="flex justify-between items-center">
+          <span className="text-gray-600 text-sm">made by cornelious</span>
+          <div className="flex items-center space-x-8">
+            <a href="#" className="text-gray-600 hover:text-black transition-colors text-sm">Figma</a>
+            <a href="#" className="text-gray-600 hover:text-black transition-colors text-sm">Twitter</a>
+            <a href="#" className="text-gray-600 hover:text-black transition-colors text-sm">LinkedIn</a>
+          </div>
+          <span className="text-gray-600 text-sm">©2025</span>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -11,87 +11,75 @@ function ProjectCards() {
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* First Draft relaunch */}
       <Link href="/identity-research-labs">
-        <motion.div
+        <motion.article
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
           transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+          className="flex cursor-pointer flex-col gap-6"
         >
-        <div className="bg-gradient-to-br from-purple-200 to-purple-300 h-64 flex items-center justify-center">
-          <div className="bg-gray-200 w-80 h-48 rounded-lg flex items-center justify-center">
+          <motion.div
+            whileHover={{ y: -16 }}
+            transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
+            className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-gray-200"
+          >
             <span className="text-gray-500 text-sm">First Draft Interface Image</span>
+          </motion.div>
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-black sm:text-3xl">Identity Research Labs</h3>
+            <p className="text-lg leading-relaxed text-gray-600">
+              Redesigning the underlying design system, creating web and mobile wireframing kits and supporting redesigning the UI as part of Figma&apos;s post-config relaunch of First Draft.
+            </p>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Figma · Shipped 2025</h4>
           </div>
-        </div>
-        <div className="bg-white p-8">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-black">Identity Research Labs</h3>
-            <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">SHIPPED ↗</span>
-          </div>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Redesigning the underlying design system, creating web and mobile wireframing kits and supporting redesigning the UI as part of Figma&apos;s post-config relaunch of First Draft.
-          </p>
-          <div className="flex items-center justify-between text-gray-500">
-            <span className="font-medium">Figma</span>
-            <span>2025</span>
-          </div>
-        </div>
-        </motion.div>
+        </motion.article>
       </Link>
 
       {/* Notifications */}
-      <motion.div
+      <motion.article
         initial={{ opacity: 0, y: 80 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-        className="rounded-3xl overflow-hidden"
+        className="flex flex-col gap-6"
       >
-        <div className="bg-gradient-to-br from-green-600 to-green-700 h-64 flex items-center justify-center">
-          <div className="bg-gray-200 w-80 h-48 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500 text-sm">Notification Interface Image</span>
-          </div>
-        </div>
-        <div className="bg-white p-8">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-black">PARC</h3>
-            <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">SHIPPED ↗</span>
-          </div>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">
+        <motion.div
+          whileHover={{ y: -16 }}
+          transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
+          className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-gray-200"
+        >
+          <span className="text-gray-500 text-sm">Notification Interface Image</span>
+        </motion.div>
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold text-black sm:text-3xl">PARC</h3>
+          <p className="text-lg leading-relaxed text-gray-600">
             Improving the information architecture and parseability of Figma&apos;s notification feed with a visual redesign. This includes a scalable and robust system to support future notifications.
           </p>
-          <div className="flex items-center justify-between text-gray-500">
-            <span className="font-medium">Figma</span>
-            <span>2025</span>
-          </div>
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Figma · Shipped 2025</h4>
         </div>
-      </motion.div>
+      </motion.article>
 
-      {/* ChromeOS PWA */}
+      {/* Sneaker Access */}
       <Link href="/sneaker-access">
-        <motion.div
+        <motion.article
           initial={{ opacity: 0, y: 80 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="rounded-3xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+          className="flex cursor-pointer flex-col gap-6"
         >
-        <div className="bg-gradient-to-br from-yellow-400 to-orange-400 h-64 flex items-center justify-center">
-          <div className="bg-gray-200 w-80 h-48 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500 text-sm">ChromeOS PWA Interface Image</span>
+          <motion.div
+            whileHover={{ y: -16 }}
+            transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
+            className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-gray-200"
+          >
+            <span className="text-gray-500 text-sm">Sneaker Access</span>
+          </motion.div>
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-black sm:text-3xl">Sneaker Access</h3>
+            <p className="text-lg leading-relaxed text-gray-600">
+                A mobile app concept that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience.
+            </p>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Figma · Shipped 2019</h4>
           </div>
-        </div>
-        <div className="bg-white p-8">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-2xl font-bold text-black">Sneaker Access</h3>
-            <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm">SHIPPED ↗</span>
-          </div>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">
-            Adding progressive web app (PWA) support for downloading Figma on Chromebooks and ChromeOS. Announced and presented during the Google I/O 2024 Chrome keynote.
-          </p>
-          <div className="flex items-center justify-between text-gray-500">
-            <span className="font-medium">Figma</span>
-            <span>2019</span>
-          </div>
-        </div>
-      </motion.div>
+        </motion.article>
       </Link>
     </div>
   );
