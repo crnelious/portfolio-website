@@ -27,9 +27,9 @@ function ProjectCards() {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-black sm:text-3xl">Identity Research Labs</h3>
             <p className="text-lg leading-relaxed text-gray-600">
-              Redesigning the underlying design system, creating web and mobile wireframing kits and supporting redesigning the UI as part of Figma&apos;s post-config relaunch of First Draft.
+              Supporting identity-focused research through organizing lab materials, synthesizing findings, and contributing design support for digital knowledge management at DePaul’s Identity Research Lab.
             </p>
-            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Figma · Shipped 2025</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Research Assistant · Shipped · 2025</h4>
           </div>
         </motion.article>
       </Link>
@@ -51,9 +51,9 @@ function ProjectCards() {
         <div className="space-y-4">
           <h3 className="text-2xl font-bold text-black sm:text-3xl">PARC</h3>
           <p className="text-lg leading-relaxed text-gray-600">
-            Improving the information architecture and parseability of Figma&apos;s notification feed with a visual redesign. This includes a scalable and robust system to support future notifications.
+            Contributing to the Healthy & Equitable Public Spaces initiative by supporting web design, creating digital assets, and assisting with research communication for DePaul’s Places for All Research Collective (PARC).
           </p>
-          <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Figma · Shipped 2025</h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Research Assistant · 2025</h4>
         </div>
       </motion.article>
 
@@ -77,7 +77,7 @@ function ProjectCards() {
             <p className="text-lg leading-relaxed text-gray-600">
                 A mobile app concept that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience.
             </p>
-            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Figma · Shipped 2019</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">E-commerce · Shipped · 2019</h4>
           </div>
         </motion.article>
       </Link>
