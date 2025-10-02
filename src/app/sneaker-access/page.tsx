@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function SneakerAccess() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 w-full py-8 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
@@ -170,7 +170,7 @@ export default function SneakerAccess() {
       <div className="max-w-7xl mx-auto px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left Column - Title and Description */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:sticky lg:top-32 self-start">
             <h2 className="text-6xl font-bold text-black">User Research & Results</h2>
             <p className="text-lg text-gray-600 leading-relaxed">
               Customers who don&apos;t have the time to line up for the latest sneaker drops will turn to our services to secure the shoes they want. Limited-edition sneakers are known for selling out within seconds of their release, and our platform ensures they don&apos;t miss out on their most coveted pairs.
@@ -182,7 +182,7 @@ export default function SneakerAccess() {
             {/* Statistic 1 */}
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <span className="text-4xl font-bold text-black">97%</span>
+                <span className="text-2xl font-semibold text-black">97%</span>
                 <div>
                   <h3 className="text-xl font-bold text-black mb-2">Of respondents do not know a sneaker bot service actually existed.</h3>
                   <p className="text-gray-600">
@@ -195,7 +195,7 @@ export default function SneakerAccess() {
             {/* Statistic 2 */}
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <span className="text-4xl font-bold text-black">79%</span>
+                <span className="text-2xl font-semibold text-black">79%</span>
                 <div>
                   <h3 className="text-xl font-bold text-black mb-2">Of respondents kept trying and buying more devices to buy shoes.</h3>
                   <p className="text-gray-600">
@@ -208,7 +208,7 @@ export default function SneakerAccess() {
             {/* Statistic 3 */}
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <span className="text-4xl font-bold text-black">66%</span>
+                <span className="text-2xl font-semibold text-black">66%</span>
                 <div>
                   <h3 className="text-xl font-bold text-black mb-2">Of respondents wish someone could just buy them the shoe and they&apos;ll pay a fee for it.</h3>
                   <p className="text-gray-600">
@@ -301,7 +301,7 @@ export default function SneakerAccess() {
       </div>
       
       {/* Usability Testing and Findings Section */}
-      <div className="bg-gray-50 py-16">
+      <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
             {/* Left Column - Title */}
