@@ -38,8 +38,8 @@ export default function SneakerAccess() {
         {/* Title Overlay - Simplified */}
         <div className="absolute left-12 top-1/2 transform -translate-y-1/2 text-white">
           <h1 className="text-6xl font-light leading-tight">
-            <span className="italic">Royal Ontario</span><br />
-            Museum
+            <span className="italic">Sneaker</span><br />
+            Access
           </h1>
         </div>
       </div>
