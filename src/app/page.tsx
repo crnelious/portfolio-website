@@ -2,6 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { Fragment, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "home", href: "#home" },
@@ -41,27 +42,29 @@ function ProjectCards() {
       badge: "E-commerce · Shipped · 2019",
       imageLabel: "Sneaker Access",
       href: "/sneaker-access",
+      imageSrc: "/projects/sneaker-access/sneaker-access-header.jpg",
     },
     {
       title: "Microsoft",
       description:
         "Rapidly prototyped cross-platform productivity flows for an internal product team, translating mixed-method research into accessible interaction patterns.",
-      badge: "Product Design Residency · 2024",
+      badge: "Cloud Support Engineer & Designer · 2023",
       imageLabel: "Microsoft Collaboration",
     },
     {
       title: "Google",
       description:
         "Partnered with Google UX researchers to refine onboarding journeys, pairing qualitative insights with high-fidelity interface explorations for emerging products.",
-      badge: "UX Research Fellowship · 2024",
+      badge: "iOS Engineer Internship · 2019",
       imageLabel: "Google UX Sprint",
     },
     {
       title: "Supreme Access",
       description:
         "Designed a membership-driven commerce flow that balances hype moments with inclusive access, focusing on real-time drops and community-driven storytelling.",
-      badge: "Brand Experience · 2023",
+      badge: "Design · Front-end Development · 2019",
       imageLabel: "Supreme Access Interface",
+      imageSrc: "/projects/supreme-access/supreme-access-header.JPG",
     },
     {
       title: "North Shore Clinical Labs",
@@ -74,7 +77,7 @@ function ProjectCards() {
 
   return (
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {projects.map(({ title, description, badge, imageLabel, href }, index) => {
+      {projects.map(({ title, description, badge, imageLabel, href, imageSrc }, index) => {
         const content = (
           <motion.article
             initial={{ opacity: 0, y: 80 }}
@@ -85,9 +88,20 @@ function ProjectCards() {
             <motion.div
               whileHover={{ y: -16 }}
               transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
-              className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-gray-200"
+              className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-gray-200"
             >
-              <span className="text-gray-500 text-sm">{imageLabel}</span>
+              {imageSrc ? (
+                <Image
+                  src={imageSrc}
+                  alt={imageLabel}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+                  className="h-full w-full object-cover"
+                  priority={index === 2}
+                />
+              ) : (
+                <span className="text-gray-500 text-sm">{imageLabel}</span>
+              )}
             </motion.div>
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-black sm:text-3xl">{title}</h3>
