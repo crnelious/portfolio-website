@@ -11,8 +11,8 @@ const NAV_LINKS = [
 
 const SOCIAL_LINKS = [
   { label: "Figma", href: "#" },
-  { label: "Twitter", href: "#" },
-  { label: "LinkedIn", href: "#" },
+  { label: "Email", href: "mailto:cornelious.info@gmail.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/crnelious" },
 ];
 
 function ProjectCards() {
@@ -38,7 +38,7 @@ function ProjectCards() {
     {
       title: "Sneaker Access",
       description:
-        "A mobile app concept that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience.",
+        "A web app concept that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience.",
       badge: "E-commerce · Shipped · 2019",
       imageLabel: "Sneaker Access",
       href: "/sneaker-access",
@@ -47,14 +47,14 @@ function ProjectCards() {
     {
       title: "Microsoft",
       description:
-        "Rapidly prototyped cross-platform productivity flows for an internal product team, translating mixed-method research into accessible interaction patterns.",
+        "Worked closely with Global Identity Azure Support teams to design user-centric solutions that enhance cloud service experiences, focusing on usability and accessibility.",
       badge: "Cloud Support Engineer & Designer · 2023",
       imageLabel: "Microsoft Collaboration",
     },
     {
       title: "Google",
       description:
-        "Partnered with Google UX researchers to refine onboarding journeys, pairing qualitative insights with high-fidelity interface explorations for emerging products.",
+        "Partnered with Google UX researchers & Google News team to refine onboarding journeys, pairing qualitative insights with high-fidelity interface explorations for Google News.",
       badge: "iOS Engineer Internship · 2019",
       imageLabel: "Google UX Sprint",
     },
@@ -62,7 +62,7 @@ function ProjectCards() {
       title: "Supreme Access",
       description:
         "Designed a membership-driven commerce flow that balances hype moments with inclusive access, focusing on real-time drops and community-driven storytelling.",
-      badge: "Design · Front-end Development · 2019",
+      badge: "Lead Designer · Front-end Development · 2019",
       imageLabel: "Supreme Access Interface",
       imageSrc: "/projects/supreme-access/supreme-access-header.JPG",
     },
