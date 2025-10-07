@@ -12,7 +12,7 @@ export default function GradientOrb({ className }: GradientOrbProps) {
 
   return (
     <div
-      className={`relative overflow-hidden rounded-full bg-black ${className ?? ""}`}
+      className={`relative overflow-hidden rounded-full bg-[#d9cedf] ${className ?? ""}`}
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
     >
@@ -47,14 +47,12 @@ export default function GradientOrb({ className }: GradientOrbProps) {
         className="absolute inset-0 h-full w-full"
         colors={["#ff714a", "#d9b9e7", "#4f74b3", "#2c3f6f", "#b6bbc9"]}
         speed={isActive ? 0.5 : 0.3}
-        backgroundColor="#d9cedf"
       />
       <MeshGradient
         className="absolute inset-0 h-full w-full opacity-60"
         colors={["#ff714a", "#d9b9e7", "#4f74b3", "#b6bbc9"]}
         speed={isActive ? 0.35 : 0.2}
         wireframe
-        backgroundColor="transparent"
       />
 
       <div className="relative h-full w-full bg-gradient-to-b from-white/10 via-transparent to-white/20 mix-blend-screen" />
