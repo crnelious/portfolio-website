@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Fragment, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import GradientOrb from "@/components/GradientOrb";
 
 const NAV_LINKS = [
   { label: "home", href: "#home" },
@@ -23,7 +24,7 @@ function ProjectCards() {
     {
       title: "Identity Research Labs",
       description:
-        "Supporting identity-focused research through organizing lab materials, synthesizing findings, and contributing design support for digital knowledge management at DePaul’s Identity Research Lab.",
+        "Supporting identity-focused research through building a website that's accessible, and contributing design support for digital knowledge management at DePaul's Identity Research Lab.",
       badge: "Research Assistant · Shipped · 2025",
       imageLabel: "First Draft Interface Image",
       href: "/identity-research-labs",
@@ -31,14 +32,14 @@ function ProjectCards() {
     {
       title: "PARC",
       description:
-        "Contributing to the Healthy & Equitable Public Spaces initiative by supporting web design, creating digital assets, and assisting with research communication for DePaul’s Places for All Research Collective (PARC).",
+        "Contributing to the Healthy & Equitable Public Spaces initiative by supporting web design, creating digital assets, and assisting with research communication for DePaul's Places for All Research Collective (PARC).",
       badge: "Research Assistant · 2025",
       imageLabel: "Notification Interface Image",
     },
     {
       title: "Sneaker Access",
       description:
-        "A web app concept that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience.",
+        "A web app that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience. Users gain access to premium sneakers by utilizing our automated checkout bot service for a fee, ensuring they secure the shoes they want during high-demand drops.",
       badge: "E-commerce · Shipped · 2019",
       imageLabel: "Sneaker Access",
       href: "/sneaker-access",
@@ -69,11 +70,11 @@ function ProjectCards() {
     {
       title: "North Shore Clinical Labs",
       description:
-        "Introduced patient-friendly reporting dashboards and intake flows that simplify complex diagnostics for North Shore Clinical Labs’ digital touchpoints.",
+        "Introduced patient-friendly reporting dashboards and intake flows that simplify complex diagnostics for North Shore Clinical Labs' digital touchpoints.",
       badge: "Healthcare Product Design · 2022",
       imageLabel: "Clinical Labs Dashboard",
     },
-  ];
+];
 
   return (
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -106,7 +107,7 @@ function ProjectCards() {
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-black sm:text-3xl">{title}</h3>
               <p className="text-lg leading-relaxed text-gray-600">{description}</p>
-              <h4 className="text-sm font-semibold uppercase tracking-wide text-gray-500">{badge}</h4>
+              <h4 className="text-sm font-semibold uppercase tracking-wide text-black">{badge}</h4>
             </div>
           </motion.article>
         );
@@ -166,7 +167,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex justify-center lg:justify-start"
           >
-            <div className="w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-black"></div>
+            <GradientOrb className="h-80 w-80 sm:h-96 sm:w-96" />
           </motion.div>
 
           {/* Right side - Text Content */}
@@ -193,6 +194,30 @@ export default function Home() {
                 DePaul University in Chicago and Im always looking to solve 
                 problems that make a positive impact.
               </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+                className="space-y-1"
+              >
+                <h2 className="text-sm font-bold uppercase tracking-wide text-black">
+                  Currently
+                </h2>
+                <p className="text-lg text-gray-600">Product Designer @ DePaul University</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+                className="space-y-1"
+              >
+                <h2 className="text-sm font-bold uppercase tracking-wide text-black">
+                  Previously at
+                </h2>
+                <p className="text-lg text-gray-600">Microsoft, NorthShore Clinical Lab & Google</p>
+              </motion.div>
             </div>
           </motion.div>
         </div>
