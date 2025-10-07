@@ -6,12 +6,12 @@ import Image from "next/image";
 import GradientOrb from "@/components/GradientOrb";
 
 const NAV_LINKS = [
-  { label: "home", href: "#home" },
+  { label: "work", href: "/" },
   { label: "me", href: "#me" },
 ];
 
 const SOCIAL_LINKS = [
-  { label: "Figma", href: "#" },
+  { label: "Twitter", href: "https://x.com/crnelious" },
   { label: "Email", href: "mailto:cornelious.info@gmail.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/crnelious" },
 ];
