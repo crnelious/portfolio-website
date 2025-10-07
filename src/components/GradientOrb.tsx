@@ -12,7 +12,7 @@ export default function GradientOrb({ className }: GradientOrbProps) {
 
   return (
     <div
-      className={`relative overflow-hidden rounded-full bg-[#d9cedf] ${className ?? ""}`}
+      className={`relative overflow-hidden bg-[#d9cedf] ${className ?? ""}`}
       onMouseEnter={() => setIsActive(true)}
       onMouseLeave={() => setIsActive(false)}
     >

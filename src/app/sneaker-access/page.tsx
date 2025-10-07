@@ -1,9 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "work", href: "/" },
-  { label: "about", href: "#me" },
+  { label: "about", href: "/about" },
 ];
 
 export default function SneakerAccess() {
@@ -17,7 +18,9 @@ export default function SneakerAccess() {
           transition={{ duration: 0.5 }}
           className="text-2xl font-medium text-black"
         >
-          cornelious
+          <Link href="/" className="nav-pill text-black hover:text-black">
+            cornelious
+          </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -26,13 +29,9 @@ export default function SneakerAccess() {
           className="flex space-x-8"
         >
           {NAV_LINKS.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="text-black hover:text-gray-600 transition-colors"
-            >
+            <Link key={label} href={href} className="nav-pill text-black hover:text-black">
               {label}
-            </a>
+            </Link>
           ))}
         </motion.div>
       </nav>
@@ -508,9 +507,9 @@ export default function SneakerAccess() {
         <div className="flex justify-between items-center">
           <span className="text-gray-600 text-sm">made by cornelious</span>
           <div className="flex items-center space-x-8">
-            <a href="#" className="text-gray-600 hover:text-black transition-colors text-sm">Figma</a>
-            <a href="#" className="text-gray-600 hover:text-black transition-colors text-sm">Twitter</a>
-            <a href="#" className="text-gray-600 hover:text-black transition-colors text-sm">LinkedIn</a>
+            <a href="#" className="nav-pill-inline text-gray-600 hover:text-black">Figma</a>
+            <a href="#" className="nav-pill-inline text-gray-600 hover:text-black">Twitter</a>
+            <a href="#" className="nav-pill-inline text-gray-600 hover:text-black">LinkedIn</a>
           </div>
           <span className="text-gray-600 text-sm">©2025</span>
         </div>

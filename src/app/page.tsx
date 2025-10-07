@@ -7,7 +7,7 @@ import GradientOrb from "@/components/GradientOrb";
 
 const NAV_LINKS = [
   { label: "work", href: "/" },
-  { label: "me", href: "#me" },
+  { label: "about", href: "/about" },
 ];
 
 const SOCIAL_LINKS = [
@@ -137,7 +137,9 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="text-2xl font-medium text-black"
         >
-          cornelious
+          <Link href="/" className="nav-pill text-black hover:text-black">
+            cornelious
+          </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -146,13 +148,9 @@ export default function Home() {
           className="flex space-x-8"
         >
           {NAV_LINKS.map(({ label, href }) => (
-            <a
-              key={label}
-              href={href}
-              className="text-black hover:text-gray-600 transition-colors"
-            >
+            <Link key={label} href={href} className="nav-pill text-black hover:text-black">
               {label}
-            </a>
+            </Link>
           ))}
         </motion.div>
       </nav>
@@ -167,7 +165,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex justify-center lg:justify-start"
           >
-            <GradientOrb className="h-80 w-80 sm:h-96 sm:w-96" />
+            <GradientOrb className="h-80 w-80 sm:h-96 sm:w-96 rounded-full" />
           </motion.div>
 
           {/* Right side - Text Content */}
@@ -233,15 +231,11 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <span className="text-gray-600 text-sm">made by cornelious</span>
           <div className="flex items-center space-x-8">
-            {SOCIAL_LINKS.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="text-gray-600 hover:text-black transition-colors text-sm"
-              >
-                {label}
-              </a>
-            ))}
+              {SOCIAL_LINKS.map(({ label, href }) => (
+                <a key={label} href={href} className="nav-pill-inline text-gray-600 hover:text-black">
+                  {label}
+                </a>
+              ))}
           </div>
           <span className="text-gray-600 text-sm">©2025</span>
         </div>
