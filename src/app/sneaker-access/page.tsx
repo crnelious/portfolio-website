@@ -1,6 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
+
+const NAV_LINKS = [
+  { label: "work", href: "/" },
+  { label: "about", href: "#me" },
+];
 
 export default function SneakerAccess() {
   return (
@@ -13,9 +17,7 @@ export default function SneakerAccess() {
           transition={{ duration: 0.5 }}
           className="text-2xl font-medium text-black"
         >
-          <Link href="/" className="hover:text-gray-600 transition-colors">
-            cornelious
-          </Link>
+          cornelious
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 20 }}
@@ -23,8 +25,15 @@ export default function SneakerAccess() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex space-x-8"
         >
-          <Link href="/" className="text-black hover:text-gray-600 transition-colors">home</Link>
-          <a href="#me" className="text-black hover:text-gray-600 transition-colors">me</a>
+          {NAV_LINKS.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="text-black hover:text-gray-600 transition-colors"
+            >
+              {label}
+            </a>
+          ))}
         </motion.div>
       </nav>
 
