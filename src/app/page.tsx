@@ -235,7 +235,7 @@ export default function Home() {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
@@ -368,14 +368,14 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="w-full px-8 sm:px-16 py-8 bg-white">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <span className="text-gray-600 text-sm">made by cornelious</span>
-          <div className="flex items-center space-x-8">
-              {SOCIAL_LINKS.map(({ label, href }) => (
-                <a key={label} href={href} className="nav-pill-inline text-gray-600 hover:text-black">
-                  {label}
-                </a>
-              ))}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+            {SOCIAL_LINKS.map(({ label, href }) => (
+              <a key={label} href={href} className="nav-pill-inline text-gray-600 hover:text-black">
+                {label}
+              </a>
+            ))}
           </div>
           <span className="text-gray-600 text-sm">©2025</span>
         </div>

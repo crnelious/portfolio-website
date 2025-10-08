@@ -517,9 +517,9 @@ export default function SneakerAccess() {
       </div>
       {/* Footer */}
       <footer className="w-full px-8 sm:px-16 py-8 bg-white">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <span className="text-gray-600 text-sm">made by cornelious</span>
-          <div className="flex items-center space-x-8">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
             <a href="#" className="nav-pill-inline text-gray-600 hover:text-black">Figma</a>
             <a href="#" className="nav-pill-inline text-gray-600 hover:text-black">Twitter</a>
             <a href="#" className="nav-pill-inline text-gray-600 hover:text-black">LinkedIn</a>
