@@ -12,9 +12,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Global metadata controls SEO + social link previews for the entire site.
 export const metadata: Metadata = {
   title: "Cornelious - Product Designer",
   description: "Product Designer passionate about crafting meaningful digital experiences focusing on user-centered design. Currently studying UX Design at DePaul University in Chicago.",
+  openGraph: {
+    title: "Cornelious Williams · Product Designer",
+    description:
+      "Product Designer passionate about crafting meaningful digital experiences focusing on user-centered design. Currently studying UX Design at DePaul University in Chicago.",
+    url: "https://example.com",
+    siteName: "Cornelious Williams Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cornelious Williams portfolio preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cornelious Williams · Product Designer",
+    description:
+      "Product Designer passionate about crafting meaningful digital experiences focusing on user-centered design. Currently studying UX Design at DePaul University in Chicago.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({

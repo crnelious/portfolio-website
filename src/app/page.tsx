@@ -1,15 +1,20 @@
 "use client";
-import { motion, useInView } from "framer-motion";
-import { Fragment, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+import type { Transition } from "framer-motion";
+import { Fragment, useCallback, useRef, useState, useEffect } from "react";
+import type { MouseEvent } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import GradientOrb from "@/components/GradientOrb";
 
+// Primary nav links used across the site header.
 const NAV_LINKS = [
-  { label: "work", href: "/" },
+  { label: "work", href: "#projects" },
   { label: "about", href: "/about" },
 ];
 
+// Social handles rendered in the footer.
 const SOCIAL_LINKS = [
   { label: "Twitter", href: "https://x.com/crnelious" },
   { label: "Email", href: "mailto:cornelious.info@gmail.com" },
@@ -17,17 +22,24 @@ const SOCIAL_LINKS = [
 ];
 
 function ProjectCards() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  // Each project drives one tile in the work grid.
+  type Project = {
+    title: string;
+    description: string;
+    badge: string;
+    imageLabel: string;
+    imageSrc?: string;
+    href?: string;
+  };
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Identity Research Labs",
       description:
         "Supporting identity-focused research through building a website that's accessible, and contributing design support for digital knowledge management at DePaul's Identity Research Lab.",
       badge: "Research Assistant · Shipped · 2025",
       imageLabel: "First Draft Interface Image",
-      href: "/identity-research-labs",
+      imageSrc: "/projects/identity-research-labs/Idrl-banner.jpg",
     },
     {
       title: "PARC",
@@ -35,6 +47,7 @@ function ProjectCards() {
         "Contributing to the Healthy & Equitable Public Spaces initiative by supporting web design, creating digital assets, and assisting with research communication for DePaul's Places for All Research Collective (PARC).",
       badge: "Research Assistant · 2025",
       imageLabel: "Notification Interface Image",
+      imageSrc: "/projects/parc/parc-banner.jpeg",
     },
     {
       title: "Sneaker Access",
@@ -42,7 +55,6 @@ function ProjectCards() {
         "A web app that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience. Users gain access to premium sneakers by utilizing our automated checkout bot service for a fee, ensuring they secure the shoes they want during high-demand drops.",
       badge: "E-commerce · Shipped · 2019",
       imageLabel: "Sneaker Access",
-      href: "/sneaker-access",
       imageSrc: "/projects/sneaker-access/sneaker-access-header.jpg",
     },
     {
@@ -51,6 +63,7 @@ function ProjectCards() {
         "Worked closely with Global Identity Azure Support teams to design user-centric solutions that enhance cloud service experiences, focusing on usability and accessibility.",
       badge: "Cloud Support Engineer & Designer · 2023",
       imageLabel: "Microsoft Collaboration",
+      imageSrc: "/projects/microsoft/azure-logo.png",
     },
     {
       title: "Google",
@@ -58,6 +71,7 @@ function ProjectCards() {
         "Partnered with Google UX researchers & Google News team to refine onboarding journeys, pairing qualitative insights with high-fidelity interface explorations for Google News.",
       badge: "iOS Engineer Internship · 2019",
       imageLabel: "Google UX Sprint",
+      imageSrc: "/projects/google/Publishers_lAhiFIX.gif",
     },
     {
       title: "Supreme Access",
@@ -73,31 +87,75 @@ function ProjectCards() {
         "Introduced patient-friendly reporting dashboards and intake flows that simplify complex diagnostics for North Shore Clinical Labs' digital touchpoints.",
       badge: "Healthcare Product Design · 2022",
       imageLabel: "Clinical Labs Dashboard",
+      imageSrc: "/projects/north-shore-clinical-labs/northshore-banner.gif",
     },
 ];
 
   return (
-    <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {projects.map(({ title, description, badge, imageLabel, href, imageSrc }, index) => {
+        const isGoogleProject = title === "Google";
+        const isMicrosoftProject = title === "Microsoft";
+        const isNorthShoreProject = title === "North Shore Clinical Labs";
+        const shouldAnimateOnLoad = index < 3;
+        const isLocked = !href;
+        const isWhiteLock =
+          isLocked &&
+          (title === "Identity Research Labs" || title === "Sneaker Access");
+        // Swap background treatments per client so logos remain legible.
+        const imageWrapperClasses = [
+          "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl",
+          isMicrosoftProject ? "bg-black" : "bg-gray-200",
+          isGoogleProject || isNorthShoreProject ? "border border-black/10" : "",
+        ]
+          .join(" ")
+          .trim();
+        const imageObjectClass = isMicrosoftProject ? "object-contain p-12" : "object-cover";
+        const cardTransition: Transition = {
+          duration: 0.7,
+          delay: shouldAnimateOnLoad ? index * 0.15 : (index % 3) * 0.15,
+          ease: "easeOut",
+        };
+
+        // Card animates in place; first row loads immediately, others as they scroll into view.
         const content = (
           <motion.article
             initial={{ opacity: 0, y: 80 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-            transition={{ duration: 0.8, delay: 0.1 + index * 0.2, ease: "easeOut" }}
+            animate={shouldAnimateOnLoad ? { opacity: 1, y: 0 } : undefined}
+            whileInView={shouldAnimateOnLoad ? undefined : { opacity: 1, y: 0 }}
+            viewport={shouldAnimateOnLoad ? undefined : { once: true, amount: 0.3 }}
+            transition={cardTransition}
             className={`flex flex-col gap-6 ${href ? "cursor-pointer" : ""}`}
           >
             <motion.div
               whileHover={{ y: -16 }}
               transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
-              className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl bg-gray-200"
+              className={imageWrapperClasses}
             >
+              {isLocked && (
+                <span
+                  className={[
+                    "pointer-events-none absolute top-3 left-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border",
+                    isWhiteLock
+                      ? "border-white/80 text-white"
+                      : "border-gray-300/80 text-gray-800",
+                  ].join(" ")}
+                >
+                  <Image
+                    src={isWhiteLock ? "/icons/white-lock.svg" : "/icons/lock.svg"}
+                    alt="Locked"
+                    width={isWhiteLock ? 20 : 18}
+                    height={isWhiteLock ? 20 : 18}
+                  />
+                </span>
+              )}
               {imageSrc ? (
                 <Image
                   src={imageSrc}
                   alt={imageLabel}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                  className="h-full w-full object-cover"
+                  className={`h-full w-full ${imageObjectClass}`}
                   priority={index === 2}
                 />
               ) : (
@@ -127,10 +185,59 @@ function ProjectCards() {
 }
 
 export default function Home() {
+  // Controls the project section entrance when "work" is clicked.
+  const projectsControls = useAnimation();
+  const projectsRef = useRef<HTMLElement | null>(null);
+  const [activeNav, setActiveNav] = useState<string>("work");
+  const pathname = usePathname();
+
+  // Smooth-scroll to the projects grid and replay its animation when "work" is tapped.
+  const handleWorkClick = useCallback(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+
+      if (typeof window === "undefined" || !projectsRef.current) {
+        return;
+      }
+
+      setActiveNav("work");
+
+      const navElement = document.querySelector("nav");
+      const navHeight = navElement?.getBoundingClientRect().height ?? 96;
+      const navOffset = navHeight + 8;
+      const targetPosition =
+        projectsRef.current.getBoundingClientRect().top + window.scrollY - navOffset;
+
+      projectsControls.stop();
+      window.scrollTo({ top: targetPosition, behavior: "smooth" });
+
+      window.setTimeout(() => {
+        projectsControls.stop();
+        projectsControls.set({ y: -48, opacity: 0.7 });
+        projectsControls.start({
+          y: 0,
+          opacity: 1,
+          transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+        });
+      }, 120);
+    },
+    [projectsControls]
+  );
+
+  // Keep the nav highlight in sync with the current route.
+  useEffect(() => {
+    if (pathname === "/about") {
+      setActiveNav("about");
+      return;
+    }
+
+    setActiveNav("work");
+  }, [pathname]);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 w-full py-8 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -145,18 +252,45 @@ export default function Home() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex space-x-8"
+          className="flex items-center gap-4 sm:gap-6"
         >
-          {NAV_LINKS.map(({ label, href }) => (
-            <Link key={label} href={href} className="nav-pill text-black hover:text-black">
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ label, href }) => {
+            const isActive = activeNav === label;
+            const baseClasses = "nav-pill text-black transition-colors";
+            const activeClasses = isActive
+              ? " bg-gray-200 text-black"
+              : " hover:text-black hover:bg-gray-200";
+            const navClassName = `${baseClasses}${activeClasses}`;
+
+            if (href.startsWith("#")) {
+              return (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={handleWorkClick}
+                  className={navClassName}
+                >
+                  {label}
+                </button>
+              );
+            }
+
+            return (
+              <Link
+                key={label}
+                href={href}
+                className={navClassName}
+                onClick={() => setActiveNav(label)}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </motion.div>
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-8 sm:px-16 min-h-screen flex items-center pt-0 pb-16">
+      <main className="max-w-7xl mx-auto px-8 sm:px-16 min-h-[80vh] flex items-start pt-24 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Gradient Circle */}
           <motion.div
@@ -222,9 +356,15 @@ export default function Home() {
       </main>
 
       {/* Projects Section */}
-      <section className="w-full px-8 sm:px-16 py-16">
+      <motion.section
+        ref={projectsRef}
+        animate={projectsControls}
+        initial={false}
+        id="projects"
+        className="w-full px-8 sm:px-16 pt-12 pb-16 lg:-mt-12"
+      >
         <ProjectCards />
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className="w-full px-8 sm:px-16 py-8 bg-white">

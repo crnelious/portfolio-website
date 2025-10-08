@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import GradientOrb from "@/components/GradientOrb";
 
 const NAV_LINKS = [
@@ -9,10 +10,12 @@ const NAV_LINKS = [
 ];
 
 export default function About() {
+  const pathname = usePathname();
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 w-full py-8 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -27,13 +30,23 @@ export default function About() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex space-x-8"
+          className="flex items-center gap-4 sm:gap-6"
         >
-          {NAV_LINKS.map(({ label, href }) => (
-            <Link key={label} href={href} className="nav-pill text-black hover:text-black">
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ label, href }) => {
+            const isActive =
+              (label === "work" && pathname === "/") ||
+              (label === "about" && pathname === "/about");
+            const baseClasses = "nav-pill text-black transition-colors";
+            const activeClasses = isActive
+              ? " bg-gray-200 text-black"
+              : " hover:text-black hover:bg-gray-200";
+
+            return (
+              <Link key={label} href={href} className={`${baseClasses}${activeClasses}`}>
+                {label}
+              </Link>
+            );
+          })}
         </motion.div>
       </nav>
 
@@ -75,7 +88,7 @@ export default function About() {
                     Currently
                   </h2>
                   <p className="text-base leading-relaxed text-gray-600">
-                    I collaborate with DePaul University’s Identity Research Lab and Places for All Research Collective—shaping product flows, design systems, and research narratives that bring academic work to life. Previously, I’ve supported teams at Microsoft and Google, bridging design with engineering to ship accessible experiences.
+                    I collaborate with DePaul University’s Identity Research Lab and Places for All Research Collective, shaping website flows, design systems, and research narratives that bring academic work to life. Previously, I’ve supported teams at Microsoft and North Shore Clinical Labs, bridging design with engineering to ship accessible experiences.
                   </p>
                 </div>
                 <div className="space-y-3">
@@ -83,7 +96,7 @@ export default function About() {
                     Out of Office
                   </h2>
                   <p className="text-base leading-relaxed text-gray-600">
-                    You’ll usually find me exploring Chicago on long walks, sketching new interface concepts, or hunting down neighborhood coffee spots. I’m also forever chasing the perfect playlist for late-night Figma sessions and always open to collaborating on projects that uplift community stories.
+                    Outside of design, I’m usually exploring Chicago’s architecture, losing track of time in art museums, or experimenting with sound in my home studio. Whether it’s gaming, music, or design meetups, I’m drawn to experiences that challenge how we see and interact with the world, and that curiosity always finds its way into my work
                   </p>
                 </div>
               </div>

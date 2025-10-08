@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "work", href: "/" },
@@ -8,10 +9,12 @@ const NAV_LINKS = [
 ];
 
 export default function SneakerAccess() {
+  const pathname = usePathname();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 w-full py-8 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -26,13 +29,23 @@ export default function SneakerAccess() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex space-x-8"
+          className="flex items-center gap-4 sm:gap-6"
         >
-          {NAV_LINKS.map(({ label, href }) => (
-            <Link key={label} href={href} className="nav-pill text-black hover:text-black">
-              {label}
-            </Link>
-          ))}
+          {NAV_LINKS.map(({ label, href }) => {
+            const isActive =
+              (label === "about" && pathname === "/about") ||
+              (label === "work" && pathname !== "/about");
+            const baseClasses = "nav-pill text-black transition-colors";
+            const activeClasses = isActive
+              ? " bg-gray-200 text-black"
+              : " hover:text-black hover:bg-gray-200";
+
+            return (
+              <Link key={label} href={href} className={`${baseClasses}${activeClasses}`}>
+                {label}
+              </Link>
+            );
+          })}
         </motion.div>
       </nav>
 
