@@ -32,6 +32,7 @@ function ProjectCards() {
     href?: string;
   };
 
+  // Static project data that feeds the animated grid below.
   const projects: Project[] = [
     {
       title: "Identity Research Labs",
@@ -127,6 +128,7 @@ function ProjectCards() {
             transition={cardTransition}
             className={`flex flex-col gap-4 sm:gap-6 ${href ? "cursor-pointer" : ""}`}
           >
+            {/* Project visual */}
             <motion.div
               whileHover={{ y: -16 }}
               transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
@@ -162,6 +164,7 @@ function ProjectCards() {
                 <span className="text-gray-500 text-sm">{imageLabel}</span>
               )}
             </motion.div>
+            {/* Project copy */}
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-2xl font-bold text-black sm:text-3xl">{title}</h3>
               <p className="text-lg leading-relaxed text-gray-600">{description}</p>
@@ -236,7 +239,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
+      {/* Sticky site navigation */}
       <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -289,7 +292,7 @@ export default function Home() {
         </motion.div>
       </nav>
 
-      {/* Main Content */}
+      {/* Hero split layout */}
       <main className="max-w-7xl mx-auto px-8 sm:px-16 min-h-[80vh] flex items-start pt-16 sm:pt-24 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Gradient Circle */}
@@ -355,7 +358,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Projects Section */}
+      {/* Project grid */}
       <motion.section
         ref={projectsRef}
         animate={projectsControls}
@@ -366,7 +369,7 @@ export default function Home() {
         <ProjectCards />
       </motion.section>
 
-      {/* Footer */}
+      {/* Footer links */}
       <footer className="w-full px-8 sm:px-16 py-8 bg-white">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
           <span className="text-gray-600 text-sm">made by cornelious</span>

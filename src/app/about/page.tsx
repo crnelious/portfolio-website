@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import GradientOrb from "@/components/GradientOrb";
 
+// Shared navigation items reused from the home page.
 const NAV_LINKS = [
   { label: "work", href: "/" },
   { label: "about", href: "/about" },
@@ -15,7 +16,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
+      {/* Sticky navigation mirrors the home page */}
       <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -50,7 +51,7 @@ export default function About() {
           })}
         </motion.div>
       </nav>
-
+      {/* Hero: gradient portrait paired with introduction */}
       <main className="w-full px-6 sm:px-12 lg:px-20 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20">
         <div className="mx-auto w-full max-w-[1400px]">
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-16 lg:gap-24 items-start">
@@ -83,6 +84,7 @@ export default function About() {
                 </p>
               </div>
 
+              {/* Overview columns */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
                 <div className="space-y-3">
                   <h2 className="text-sm font-semibold uppercase tracking-wide text-black">
@@ -91,22 +93,6 @@ export default function About() {
                   <p className="text-base leading-relaxed text-gray-600">
                     I collaborate with DePaul University’s Identity Research Lab and Places for All Research Collective, shaping website flows, design systems, and research narratives that bring academic work to life. Previously, I’ve supported teams at Microsoft and North Shore Clinical Labs, bridging design with engineering to ship accessible experiences.
                   </p>
-                  <div className="flex items-center gap-6 pt-2">
-                    <a
-                      href="mailto:cornelious.info@gmail.com"
-                      aria-label="Email Cornelious"
-                      className="transition-opacity hover:opacity-80"
-                    >
-                      <Image src="/icons/mail.svg" alt="Email" width={28} height={28} />
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/crnelious"
-                      aria-label="Cornelious on LinkedIn"
-                      className="transition-opacity hover:opacity-80"
-                    >
-                      <Image src="/icons/linkedin.svg" alt="LinkedIn" width={28} height={28} />
-                    </a>
-                  </div>
                 </div>
                 <div className="space-y-3">
                   <h2 className="text-sm font-semibold uppercase tracking-wide text-black">
@@ -116,12 +102,33 @@ export default function About() {
                     Outside of design, I’m usually exploring Chicago’s architecture, losing track of time in art museums, or experimenting with sound in my home studio. Whether it’s gaming, music, or design meetups, I’m drawn to experiences that challenge how we see and interact with the world, and that curiosity always finds its way into my work
                   </p>
                 </div>
+                {/* Quick contact icons */}
+                <div className="flex items-center gap-4 pt-4 sm:col-start-1">
+                  <a
+                    href="mailto:cornelious.info@gmail.com"
+                    aria-label="Email Cornelious"
+                    className="flex h-11 w-11 items-center justify-center rounded-full transition hover:bg-gray-200 focus-visible:bg-gray-200"
+                  >
+                    <Image src="/icons/mail.svg" alt="Email" width={28} height={28} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/crnelious"
+                    aria-label="Cornelious on LinkedIn"
+                    className="flex h-11 w-11 items-center justify-center rounded-full transition hover:bg-gray-200 focus-visible:bg-gray-200"
+                  >
+                    <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
+                  </a>
+                </div>
               </div>
             </motion.section>
           </div>
         </div>
       </main>
 
+      {/* Product philosophy summary */}
+      {/* Experience timeline */}
+      {/* Education milestones */}
+      {/* Product philosophy summary */}
       <section className="w-full bg-white px-6 sm:px-12 lg:px-20 py-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 lg:grid-cols-[0.9fr_1.4fr] lg:items-start">
           <div className="space-y-4">
@@ -167,6 +174,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* Experience timeline */}
       <section className="w-full bg-white px-6 sm:px-12 lg:px-20 py-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 lg:grid-cols-[0.9fr_1.4fr]">
           <div className="space-y-6">
@@ -239,7 +247,7 @@ export default function About() {
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold text-black">Sneaker Access</h3>
                 <p className="text-sm uppercase tracking-wide text-gray-500">
-                  Product Designer · Co-founder
+                  Lead Designer
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
                   Led product vision for a membership platform that helped collectors secure limited releases. Defined brand, interface, and community flows that balanced hype with fairness.
@@ -267,7 +275,7 @@ export default function About() {
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold text-black">Hypremium</h3>
                 <p className="text-sm uppercase tracking-wide text-gray-500">
-                  Founder · Product Designer
+                  Founder Designer
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
                   Built and launched online marketplaces for streetwear collectors. Ran end-to-end design and front-end experimentation to keep inventory drops engaging and trustworthy.
@@ -278,6 +286,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* Education milestones */}
       <section className="w-full bg-white px-6 sm:px-12 lg:px-20 py-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 lg:grid-cols-[0.9fr_1.4fr]">
           <div className="space-y-6">
@@ -318,6 +327,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* Footer repeats global links */}
       <footer className="w-full px-8 sm:px-16 py-8 bg-white">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <span className="text-gray-600 text-sm">made by cornelious</span>
