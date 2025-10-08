@@ -92,7 +92,7 @@ function ProjectCards() {
 ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 gap-20 md:grid-cols-3 md:gap-8">
       {projects.map(({ title, description, badge, imageLabel, href, imageSrc }, index) => {
         const isGoogleProject = title === "Google";
         const isMicrosoftProject = title === "Microsoft";
@@ -125,7 +125,7 @@ function ProjectCards() {
             whileInView={shouldAnimateOnLoad ? undefined : { opacity: 1, y: 0 }}
             viewport={shouldAnimateOnLoad ? undefined : { once: true, amount: 0.3 }}
             transition={cardTransition}
-            className={`flex flex-col gap-6 ${href ? "cursor-pointer" : ""}`}
+            className={`flex flex-col gap-4 sm:gap-6 ${href ? "cursor-pointer" : ""}`}
           >
             <motion.div
               whileHover={{ y: -16 }}
@@ -162,7 +162,7 @@ function ProjectCards() {
                 <span className="text-gray-500 text-sm">{imageLabel}</span>
               )}
             </motion.div>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <h3 className="text-2xl font-bold text-black sm:text-3xl">{title}</h3>
               <p className="text-lg leading-relaxed text-gray-600">{description}</p>
               <h4 className="text-sm font-semibold uppercase tracking-wide text-black">{badge}</h4>
@@ -290,7 +290,7 @@ export default function Home() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-8 sm:px-16 min-h-[80vh] flex items-start pt-24 pb-8">
+      <main className="max-w-7xl mx-auto px-8 sm:px-16 min-h-[80vh] flex items-start pt-16 sm:pt-24 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Gradient Circle */}
           <motion.div
@@ -321,7 +321,7 @@ export default function Home() {
               
               <p>
                 Im passionate about crafting meaningful{" "}
-                <span className="underline decoration-2 underline-offset-2">digital experiences</span>{" "}
+                <strong>digital experiences</strong>{" "}
                 focusing on user-centered design. I am currently studying UX Design @{" "}
                 DePaul University in Chicago and Im always looking to solve 
                 problems that make a positive impact.

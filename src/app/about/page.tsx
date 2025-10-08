@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import GradientOrb from "@/components/GradientOrb";
@@ -50,7 +51,7 @@ export default function About() {
         </motion.div>
       </nav>
 
-      <main className="w-full px-6 sm:px-12 lg:px-20 py-20">
+      <main className="w-full px-6 sm:px-12 lg:px-20 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20">
         <div className="mx-auto w-full max-w-[1400px]">
           <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-16 lg:gap-24 items-start">
             <motion.div
@@ -75,7 +76,7 @@ export default function About() {
                   Im Cornelious
                 </h1>
                 <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
-                  /kor-nee-lee-us/
+                  Neil is my nickname.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-600">
                   I’m a product designer focused on crafting welcoming digital experiences for communities and organizations that care deeply about access. My background sits at the intersection of research, front-end curiosity, and visual systems—helping teams move from complex ideas to thoughtful, approachable products.
@@ -90,6 +91,22 @@ export default function About() {
                   <p className="text-base leading-relaxed text-gray-600">
                     I collaborate with DePaul University’s Identity Research Lab and Places for All Research Collective, shaping website flows, design systems, and research narratives that bring academic work to life. Previously, I’ve supported teams at Microsoft and North Shore Clinical Labs, bridging design with engineering to ship accessible experiences.
                   </p>
+                  <div className="flex items-center gap-6 pt-2">
+                    <a
+                      href="mailto:cornelious.info@gmail.com"
+                      aria-label="Email Cornelious"
+                      className="transition-opacity hover:opacity-80"
+                    >
+                      <Image src="/icons/mail.svg" alt="Email" width={28} height={28} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/crnelious"
+                      aria-label="Cornelious on LinkedIn"
+                      className="transition-opacity hover:opacity-80"
+                    >
+                      <Image src="/icons/linkedin.svg" alt="LinkedIn" width={28} height={28} />
+                    </a>
+                  </div>
                 </div>
                 <div className="space-y-3">
                   <h2 className="text-sm font-semibold uppercase tracking-wide text-black">
@@ -159,7 +176,7 @@ export default function About() {
 
           </div>
           <div className="space-y-14">
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2024 — Now
               </span>
@@ -173,7 +190,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2022 — 2023
               </span>
@@ -187,7 +204,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2021 — 2022
               </span>
@@ -201,7 +218,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2019
               </span>
@@ -215,7 +232,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2019 — 2020
               </span>
@@ -229,7 +246,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2019 — 2020
               </span>
@@ -243,7 +260,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2018 — 2020
               </span>
@@ -269,7 +286,7 @@ export default function About() {
             </h2>
           </div>
           <div className="space-y-10">
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2026
               </span>
@@ -283,7 +300,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-[minmax(120px,160px)_1fr] gap-10">
+            <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
               <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
                 2022
               </span>
