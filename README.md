@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cornelious Williams – Portfolio Site
+
+A personal portfolio for showcasing product design and front-end work. The site highlights selected projects, current collaborations, and background information in a clean, accessibility-minded layout.
+
+## Features
+
+- Animated hero section with quick bio and current/previous roles
+- Project gallery with hover interactions and lock states for private work
+- Dedicated About page detailing experience, education, and contact links
+- Responsive layout tuned for small screens (adjusted spacing, stacked sections)
+- Image handling with `next/image` and optimized assets under `public/projects`
+- Motion and scroll reveals powered by Framer Motion
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) App Router
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# install dependencies
+npm install
+
+# start the dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` while the dev server is running.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    page.tsx          # Home page with project grid
+    about/page.tsx    # About page with timeline + contact icons
+    layout.tsx        # Shared shell & metadata
+    globals.css       # Global styles & Tailwind layers
+  components/
+    GradientOrb.tsx   # Reusable gradient graphic
+public/
+  projects/
+    <project-name>/   # Project hero assets
+```
 
-## Learn More
+## Updating Content
 
-To learn more about Next.js, take a look at the following resources:
+- **Projects:** Edit the array inside `src/app/page.tsx`. Each entry controls a card in the grid. Images belong in `public/projects/<project-name>/`.
+- **About page:** Update copy blocks in `src/app/about/page.tsx`. Contact icons live in `/public/icons`.
+- **Branding:** Global typography and colors can be adjusted in `src/app/globals.css`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site can be deployed to any platform that supports Node.js (Vercel, Netlify, Render, etc.). Run `npm run build` and follow your host’s instructions—no extra configuration files are required.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is maintained by Cornelious Williams. Feel free to adapt it for future portfolio iterations.
