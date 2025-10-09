@@ -150,7 +150,7 @@ export default function About() {
                 <span className="text-gray-500">2022 — 2023</span>
               </div>
               <div className="flex justify-between font-medium text-black">
-                <span>NorthShore Clinical Labs</span>
+                <span>Northshore Clinical Labs</span>
                 <span className="text-gray-500">2021 — 2022</span>
               </div>
               <div className="flex justify-between font-medium text-black">
@@ -217,7 +217,7 @@ export default function About() {
                 2021 — 2022
               </span>
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-black">NorthShore Clinical Labs</h3>
+                <h3 className="text-xl font-semibold text-black">Northshore Clinical Labs</h3>
                 <p className="text-sm uppercase tracking-wide text-gray-500">
                   Product Design Lead
                 </p>

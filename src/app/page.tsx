@@ -351,7 +351,7 @@ export default function Home() {
                 <h2 className="text-sm font-bold uppercase tracking-wide text-black">
                   Previously at
                 </h2>
-                <p className="text-lg text-gray-600">Microsoft, NorthShore Clinical Lab & Google</p>
+                <p className="text-lg text-gray-600">Microsoft, Northshore Clinical Lab & Google</p>
               </motion.div>
             </div>
           </motion.div>
