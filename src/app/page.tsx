@@ -90,6 +90,14 @@ function ProjectCards() {
       imageLabel: "Clinical Labs Dashboard",
       imageSrc: "/projects/north-shore-clinical-labs/northshore-banner.gif",
     },
+    {
+      title: "Hypremium",
+      description:
+        "Built and led a sneaker resale platform from the ground up, focusing on user experience, trust, and seamless transactions in the sneaker community.",
+      badge: "Founder · Product Designer · 2018",
+      imageLabel: "Hypremium Drops Interface",
+      imageSrc: "/projects/hypremium/hypremium-header.gif",
+    },
 ];
 
   return (
@@ -98,6 +106,7 @@ function ProjectCards() {
         const isGoogleProject = title === "Google";
         const isMicrosoftProject = title === "Microsoft";
         const isNorthShoreProject = title === "North Shore Clinical Labs";
+        const isHypremiumProject = title === "Hypremium";
         const shouldAnimateOnLoad = index < 3;
         const isLocked = !href;
         const isWhiteLock =
@@ -107,7 +116,7 @@ function ProjectCards() {
         const imageWrapperClasses = [
           "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl",
           isMicrosoftProject ? "bg-black" : "bg-gray-200",
-          isGoogleProject || isNorthShoreProject ? "border border-black/10" : "",
+          isGoogleProject || isNorthShoreProject || isHypremiumProject ? "border border-black/10" : "",
         ]
           .join(" ")
           .trim();
