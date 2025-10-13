@@ -74,7 +74,7 @@ export default function About() {
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-black">
                   Hello,
                   <br />
-                  Im Cornelious
+                  I’m Cornelious
                 </h1>
                 <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
                   Neil is my nickname.

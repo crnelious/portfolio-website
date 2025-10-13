@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 
 // Global metadata controls SEO + social link previews for the entire site.
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cornelious.design"),
   title: "Cornelious - Product Designer",
   description: "Product Designer passionate about crafting meaningful digital experiences focusing on user-centered design. Currently studying UX Design at DePaul University in Chicago.",
   openGraph: {

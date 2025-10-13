@@ -112,6 +112,8 @@ function ProjectCards() {
         const isWhiteLock =
           isLocked &&
           (title === "Identity Research Labs" || title === "Sneaker Access");
+        const isAnimatedGif =
+          typeof imageSrc === "string" && imageSrc.toLowerCase().endsWith(".gif");
         // Swap background treatments per client so logos remain legible.
         const imageWrapperClasses = [
           "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl",
@@ -167,6 +169,7 @@ function ProjectCards() {
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
                   className={`h-full w-full ${imageObjectClass}`}
+                  unoptimized={isAnimatedGif}
                   priority={index === 2}
                 />
               ) : (
