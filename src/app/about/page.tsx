@@ -17,7 +17,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Sticky navigation mirrors the home page */}
-      <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 flex w-full items-center justify-between bg-gray-50/80 px-8 py-6 backdrop-blur-md sm:px-16">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -44,7 +44,11 @@ export default function About() {
               : " hover:text-black hover:bg-gray-200";
 
             return (
-              <Link key={label} href={href} className={`${baseClasses}${activeClasses}`}>
+              <Link
+                key={label}
+                href={href}
+                className={`${baseClasses}${activeClasses}`}
+              >
                 {label}
               </Link>
             );
@@ -52,9 +56,9 @@ export default function About() {
         </motion.div>
       </nav>
       {/* Hero: gradient portrait paired with introduction */}
-      <main className="w-full px-6 sm:px-12 lg:px-20 pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20">
+      <main className="w-full px-6 pt-12 pb-16 sm:px-12 sm:pt-16 sm:pb-20 lg:px-20 lg:pt-20">
         <div className="mx-auto w-full max-w-[1400px]">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.4fr] gap-16 lg:gap-24 items-start">
+          <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-[0.9fr_1.4fr] lg:gap-24">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,35 +75,50 @@ export default function About() {
               className="space-y-10"
             >
               <div className="space-y-5">
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-black">
+                <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl lg:text-7xl">
                   Hello,
                   <br />
                   I’m Cornelious
                 </h1>
-                <p className="text-sm uppercase tracking-[0.35em] text-gray-500">
+                <p className="text-sm tracking-[0.35em] text-gray-500 uppercase">
                   Neil is my nickname.
                 </p>
                 <p className="text-lg leading-relaxed text-gray-600">
-                  I’m a product designer focused on crafting welcoming digital experiences for communities and organizations that care deeply about access. My background sits at the intersection of research, front-end curiosity, and visual systems—helping teams move from complex ideas to thoughtful, approachable products.
+                  I’m a product designer focused on crafting welcoming digital
+                  experiences for communities and organizations that care deeply
+                  about access. My background sits at the intersection of
+                  research, front-end curiosity, and visual systems—helping
+                  teams move from complex ideas to thoughtful, approachable
+                  products.
                 </p>
               </div>
 
               {/* Overview columns */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
+              <div className="grid grid-cols-1 gap-12 sm:grid-cols-2">
                 <div className="space-y-3">
-                  <h2 className="text-sm font-semibold uppercase tracking-wide text-black">
+                  <h2 className="text-sm font-semibold tracking-wide text-black uppercase">
                     Currently
                   </h2>
                   <p className="text-base leading-relaxed text-gray-600">
-                    I collaborate with DePaul University’s Identity Research Lab and Places for All Research Collective, shaping website flows, design systems, and research narratives that bring academic work to life. Previously, I’ve supported teams at Microsoft and North Shore Clinical Labs, bridging design with engineering to ship accessible experiences.
+                    I collaborate with DePaul University’s Identity Research Lab
+                    and Places for All Research Collective, shaping website
+                    flows, design systems, and research narratives that bring
+                    academic work to life. Previously, I’ve supported teams at
+                    Microsoft and North Shore Clinical Labs, bridging design
+                    with engineering to ship accessible experiences.
                   </p>
                 </div>
                 <div className="space-y-3">
-                  <h2 className="text-sm font-semibold uppercase tracking-wide text-black">
+                  <h2 className="text-sm font-semibold tracking-wide text-black uppercase">
                     Out of Office
                   </h2>
                   <p className="text-base leading-relaxed text-gray-600">
-                    Outside of design, I’m usually exploring Chicago’s architecture, losing track of time in art museums, or experimenting with sound in my home studio. Whether it’s gaming, music, or design meetups, I’m drawn to experiences that challenge how we see and interact with the world, and that curiosity always finds its way into my work
+                    Outside of design, I’m usually exploring Chicago’s
+                    architecture, losing track of time in art museums, or
+                    experimenting with sound in my home studio. Whether it’s
+                    gaming, music, or design meetups, I’m drawn to experiences
+                    that challenge how we see and interact with the world, and
+                    that curiosity always finds its way into my work
                   </p>
                 </div>
                 {/* Quick contact icons */}
@@ -109,14 +128,24 @@ export default function About() {
                     aria-label="Email Cornelious"
                     className="flex h-11 w-11 items-center justify-center rounded-full transition hover:bg-gray-200 focus-visible:bg-gray-200"
                   >
-                    <Image src="/icons/mail.svg" alt="Email" width={28} height={28} />
+                    <Image
+                      src="/icons/mail.svg"
+                      alt="Email"
+                      width={28}
+                      height={28}
+                    />
                   </a>
                   <a
                     href="https://www.linkedin.com/in/crnelious"
                     aria-label="Cornelious on LinkedIn"
                     className="flex h-11 w-11 items-center justify-center rounded-full transition hover:bg-gray-200 focus-visible:bg-gray-200"
                   >
-                    <Image src="/icons/linkedin.svg" alt="LinkedIn" width={24} height={24} />
+                    <Image
+                      src="/icons/linkedin.svg"
+                      alt="LinkedIn"
+                      width={24}
+                      height={24}
+                    />
                   </a>
                 </div>
               </div>
@@ -129,18 +158,22 @@ export default function About() {
       {/* Experience timeline */}
       {/* Education milestones */}
       {/* Product philosophy summary */}
-      <section className="w-full bg-white px-6 sm:px-12 lg:px-20 py-20">
+      <section className="w-full bg-white px-6 py-20 sm:px-12 lg:px-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 lg:grid-cols-[0.9fr_1.4fr] lg:items-start">
           <div className="space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-semibold text-black tracking-tight">
+            <h2 className="text-3xl font-semibold tracking-tight text-black sm:text-4xl">
               I love designing & building products.
             </h2>
           </div>
           <div className="space-y-8">
-            <p className="text-lg leading-relaxed text-gray-600 max-w-2xl">
-              Every day I’m driven to solve problems for others and craft experiences that feel intuitive, warm, and considered. Currently I’m supporting DePaul University’s design and research teams while collaborating with partners who value accessibility and storytelling.
+            <p className="max-w-2xl text-lg leading-relaxed text-gray-600">
+              Every day I’m driven to solve problems for others and craft
+              experiences that feel intuitive, warm, and considered. Currently
+              I’m supporting DePaul University’s design and research teams while
+              collaborating with partners who value accessibility and
+              storytelling.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 text-gray-700 text-base">
+            <div className="grid grid-cols-1 gap-x-12 gap-y-6 text-base text-gray-700 sm:grid-cols-2">
               <div className="flex justify-between font-medium text-black">
                 <span>DePaul University</span>
                 <span className="text-gray-500">2024 — Now</span>
@@ -175,110 +208,133 @@ export default function About() {
       </section>
 
       {/* Experience timeline */}
-      <section className="w-full bg-white px-6 sm:px-12 lg:px-20 py-20">
+      <section className="w-full bg-white px-6 py-20 sm:px-12 lg:px-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 lg:grid-cols-[0.9fr_1.4fr]">
           <div className="space-y-6">
-            <h2 className="text-4xl sm:text-5xl font-semibold text-black tracking-tight">
+            <h2 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl">
               Experience
             </h2>
-
           </div>
           <div className="space-y-14">
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2024 — Now
               </span>
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-black">DePaul University</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <h3 className="text-xl font-semibold text-black">
+                  DePaul University
+                </h3>
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Product Designer · Identity Research Lab
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Dive into research-rich problems with faculty and students, translating findings into inclusive tools, websites, and systems that broaden access to identity-focused scholarship.
+                  Dive into research-rich problems with faculty and students,
+                  translating findings into inclusive tools, websites, and
+                  systems that broaden access to identity-focused scholarship.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2022 — 2023
               </span>
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold text-black">Microsoft</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Cloud Support Engineer & Designer
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Partnered with Azure identity teams to streamline case workflows and surface guidance faster. Balanced frontline engineering with experience design to reduce resolution time for enterprise customers.
+                  Partnered with Azure identity teams to streamline case
+                  workflows and surface guidance faster. Balanced frontline
+                  engineering with experience design to reduce resolution time
+                  for enterprise customers.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2021 — 2022
               </span>
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-black">Northshore Clinical Labs</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <h3 className="text-xl font-semibold text-black">
+                  Northshore Clinical Labs
+                </h3>
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Product Design Lead
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Reimagined lab reporting and intake flows so patients could understand results at a glance. Built modular dashboards and care journeys that helped clinicians communicate with clarity.
+                  Reimagined lab reporting and intake flows so patients could
+                  understand results at a glance. Built modular dashboards and
+                  care journeys that helped clinicians communicate with clarity.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2019
               </span>
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold text-black">Google</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   iOS Engineer Internship · Google News
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Paired with UX research to refine the onboarding journey, ship animated prototypes, and align iOS engineers on an accessible first-run experience for millions of readers.
+                  Paired with UX research to refine the onboarding journey, ship
+                  animated prototypes, and align iOS engineers on an accessible
+                  first-run experience for millions of readers.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2019 — 2020
               </span>
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-black">Sneaker Access</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <h3 className="text-xl font-semibold text-black">
+                  Sneaker Access
+                </h3>
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Lead Designer
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Led product vision for a membership platform that helped collectors secure limited releases. Defined brand, interface, and community flows that balanced hype with fairness.
+                  Led product vision for a membership platform that helped
+                  collectors secure limited releases. Defined brand, interface,
+                  and community flows that balanced hype with fairness.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2019 — 2020
               </span>
               <div className="space-y-2">
-                <h3 className="text-xl font-semibold text-black">Supreme Access</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <h3 className="text-xl font-semibold text-black">
+                  Supreme Access
+                </h3>
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Lead Designer
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Crafted a storytelling-driven commerce experience that celebrated the community while keeping the drop experience fast, accessible, and inclusive.
+                  Crafted a storytelling-driven commerce experience that
+                  celebrated the community while keeping the drop experience
+                  fast, accessible, and inclusive.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2018 — 2020
               </span>
               <div className="space-y-2">
                 <h3 className="text-xl font-semibold text-black">Hypremium</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Founder Designer
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Built and launched online marketplaces for streetwear collectors. Ran end-to-end design and front-end experimentation to keep inventory drops engaging and trustworthy.
+                  Built and launched online marketplaces for streetwear
+                  collectors. Ran end-to-end design and front-end
+                  experimentation to keep inventory drops engaging and
+                  trustworthy.
                 </p>
               </div>
             </div>
@@ -287,39 +343,46 @@ export default function About() {
       </section>
 
       {/* Education milestones */}
-      <section className="w-full bg-white px-6 sm:px-12 lg:px-20 py-20">
+      <section className="w-full bg-white px-6 py-20 sm:px-12 lg:px-20">
         <div className="mx-auto grid w-full max-w-[1400px] gap-16 lg:grid-cols-[0.9fr_1.4fr]">
           <div className="space-y-6">
-            <h2 className="text-4xl sm:text-5xl font-semibold text-black tracking-tight">
+            <h2 className="text-4xl font-semibold tracking-tight text-black sm:text-5xl">
               Education
             </h2>
           </div>
           <div className="space-y-10">
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2026
               </span>
               <div className="space-y-1.5">
-                <h3 className="text-xl font-semibold text-black">Bachelor of Science</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <h3 className="text-xl font-semibold text-black">
+                  Bachelor of Science
+                </h3>
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   DePaul University · User Experience Design
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Immersive coursework in interaction design, research synthesis, and inclusive design systems. GPA 3.8.
+                  Immersive coursework in interaction design, research
+                  synthesis, and inclusive design systems. GPA 3.8.
                 </p>
               </div>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:[grid-template-columns:minmax(120px,160px)_1fr] sm:gap-10">
-              <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
+              <span className="text-sm font-semibold tracking-[0.3em] text-gray-500 uppercase">
                 2022
               </span>
               <div className="space-y-1.5">
-                <h3 className="text-xl font-semibold text-black">Associate of Science</h3>
-                <p className="text-sm uppercase tracking-wide text-gray-500">
+                <h3 className="text-xl font-semibold text-black">
+                  Associate of Science
+                </h3>
+                <p className="text-sm tracking-wide text-gray-500 uppercase">
                   Joliet Junior College · Computer Science
                 </p>
                 <p className="text-base leading-relaxed text-gray-600">
-                  Foundations in programming, data structures, and problem-solving that support collaborative product work. GPA 3.5.
+                  Foundations in programming, data structures, and
+                  problem-solving that support collaborative product work. GPA
+                  3.5.
                 </p>
               </div>
             </div>
@@ -328,21 +391,30 @@ export default function About() {
       </section>
 
       {/* Footer repeats global links */}
-      <footer className="w-full px-8 sm:px-16 py-8 bg-white">
+      <footer className="w-full bg-white px-8 py-8 sm:px-16">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <span className="text-gray-600 text-sm">made by cornelious</span>
+          <span className="text-sm text-gray-600">made by cornelious</span>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
-            <a href="https://x.com/crnelious" className="nav-pill-inline text-gray-600 hover:text-black">
+            <a
+              href="https://x.com/crnelious"
+              className="nav-pill-inline text-gray-600 hover:text-black"
+            >
               Twitter
             </a>
-            <a href="mailto:cornelious.info@gmail.com" className="nav-pill-inline text-gray-600 hover:text-black">
+            <a
+              href="mailto:cornelious.info@gmail.com"
+              className="nav-pill-inline text-gray-600 hover:text-black"
+            >
               Email
             </a>
-            <a href="https://www.linkedin.com/in/crnelious" className="nav-pill-inline text-gray-600 hover:text-black">
+            <a
+              href="https://www.linkedin.com/in/crnelious"
+              className="nav-pill-inline text-gray-600 hover:text-black"
+            >
               LinkedIn
             </a>
           </div>
-          <span className="text-gray-600 text-sm">©2025</span>
+          <span className="text-sm text-gray-600">©2025</span>
         </div>
       </footer>
     </div>

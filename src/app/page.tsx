@@ -98,103 +98,124 @@ function ProjectCards() {
       imageLabel: "Hypremium Drops Interface",
       imageSrc: "/projects/hypremium/hypremium-header.gif",
     },
-];
+  ];
 
   return (
     <div className="grid grid-cols-1 gap-20 md:grid-cols-3 md:gap-8">
-      {projects.map(({ title, description, badge, imageLabel, href, imageSrc }, index) => {
-        const isGoogleProject = title === "Google";
-        const isMicrosoftProject = title === "Microsoft";
-        const isNorthShoreProject = title === "North Shore Clinical Labs";
-        const isHypremiumProject = title === "Hypremium";
-        const shouldAnimateOnLoad = index < 3;
-        const isLocked = !href;
-        const isWhiteLock =
-          isLocked &&
-          (title === "Identity Research Labs" || title === "Sneaker Access");
-        const isAnimatedGif =
-          typeof imageSrc === "string" && imageSrc.toLowerCase().endsWith(".gif");
-        // Swap background treatments per client so logos remain legible.
-        const imageWrapperClasses = [
-          "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl",
-          isMicrosoftProject ? "bg-black" : "bg-gray-200",
-          isGoogleProject || isNorthShoreProject || isHypremiumProject ? "border border-black/10" : "",
-        ]
-          .join(" ")
-          .trim();
-        const imageObjectClass = isMicrosoftProject ? "object-contain p-12" : "object-cover";
-        const cardTransition: Transition = {
-          duration: 0.7,
-          delay: shouldAnimateOnLoad ? index * 0.15 : (index % 3) * 0.15,
-          ease: "easeOut",
-        };
+      {projects.map(
+        ({ title, description, badge, imageLabel, href, imageSrc }, index) => {
+          const isGoogleProject = title === "Google";
+          const isMicrosoftProject = title === "Microsoft";
+          const isNorthShoreProject = title === "North Shore Clinical Labs";
+          const isHypremiumProject = title === "Hypremium";
+          const shouldAnimateOnLoad = index < 3;
+          const isLocked = !href;
+          const isWhiteLock =
+            isLocked &&
+            (title === "Identity Research Labs" || title === "Sneaker Access");
+          const isAnimatedGif =
+            typeof imageSrc === "string" &&
+            imageSrc.toLowerCase().endsWith(".gif");
+          // Swap background treatments per client so logos remain legible.
+          const imageWrapperClasses = [
+            "relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-3xl",
+            isMicrosoftProject ? "bg-black" : "bg-gray-200",
+            isGoogleProject || isNorthShoreProject || isHypremiumProject
+              ? "border border-black/10"
+              : "",
+          ]
+            .join(" ")
+            .trim();
+          const imageObjectClass = isMicrosoftProject
+            ? "object-contain p-12"
+            : "object-cover";
+          const cardTransition: Transition = {
+            duration: 0.7,
+            delay: shouldAnimateOnLoad ? index * 0.15 : (index % 3) * 0.15,
+            ease: "easeOut",
+          };
 
-        // Card animates in place; first row loads immediately, others as they scroll into view.
-        const content = (
-          <motion.article
-            initial={{ opacity: 0, y: 80 }}
-            animate={shouldAnimateOnLoad ? { opacity: 1, y: 0 } : undefined}
-            whileInView={shouldAnimateOnLoad ? undefined : { opacity: 1, y: 0 }}
-            viewport={shouldAnimateOnLoad ? undefined : { once: true, amount: 0.3 }}
-            transition={cardTransition}
-            className={`flex flex-col gap-4 sm:gap-6 ${href ? "cursor-pointer" : ""}`}
-          >
-            {/* Project visual */}
-            <motion.div
-              whileHover={{ y: -16 }}
-              transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
-              className={imageWrapperClasses}
+          // Card animates in place; first row loads immediately, others as they scroll into view.
+          const content = (
+            <motion.article
+              initial={{ opacity: 0, y: 80 }}
+              animate={shouldAnimateOnLoad ? { opacity: 1, y: 0 } : undefined}
+              whileInView={
+                shouldAnimateOnLoad ? undefined : { opacity: 1, y: 0 }
+              }
+              viewport={
+                shouldAnimateOnLoad ? undefined : { once: true, amount: 0.3 }
+              }
+              transition={cardTransition}
+              className={`flex flex-col gap-4 sm:gap-6 ${href ? "cursor-pointer" : ""}`}
             >
-              {isLocked && (
-                <span
-                  className={[
-                    "pointer-events-none absolute top-3 left-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border",
-                    isWhiteLock
-                      ? "border-white/80 text-white"
-                      : "border-gray-300/80 text-gray-800",
-                  ].join(" ")}
-                >
+              {/* Project visual */}
+              <motion.div
+                whileHover={{ y: -16 }}
+                transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
+                className={imageWrapperClasses}
+              >
+                {isLocked && (
+                  <span
+                    className={[
+                      "pointer-events-none absolute top-3 left-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border",
+                      isWhiteLock
+                        ? "border-white/80 text-white"
+                        : "border-gray-300/80 text-gray-800",
+                    ].join(" ")}
+                  >
+                    <Image
+                      src={
+                        isWhiteLock
+                          ? "/icons/white-lock.svg"
+                          : "/icons/lock.svg"
+                      }
+                      alt="Locked"
+                      width={isWhiteLock ? 20 : 18}
+                      height={isWhiteLock ? 20 : 18}
+                    />
+                  </span>
+                )}
+                {imageSrc ? (
                   <Image
-                    src={isWhiteLock ? "/icons/white-lock.svg" : "/icons/lock.svg"}
-                    alt="Locked"
-                    width={isWhiteLock ? 20 : 18}
-                    height={isWhiteLock ? 20 : 18}
+                    src={imageSrc}
+                    alt={imageLabel}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
+                    className={`h-full w-full ${imageObjectClass}`}
+                    unoptimized={isAnimatedGif}
+                    priority={index === 2}
                   />
-                </span>
-              )}
-              {imageSrc ? (
-                <Image
-                  src={imageSrc}
-                  alt={imageLabel}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 100vw"
-                  className={`h-full w-full ${imageObjectClass}`}
-                  unoptimized={isAnimatedGif}
-                  priority={index === 2}
-                />
-              ) : (
-                <span className="text-gray-500 text-sm">{imageLabel}</span>
-              )}
-            </motion.div>
-            {/* Project copy */}
-            <div className="space-y-3 sm:space-y-4">
-              <h3 className="text-2xl font-bold text-black sm:text-3xl">{title}</h3>
-              <p className="text-lg leading-relaxed text-gray-600">{description}</p>
-              <h4 className="text-sm font-semibold uppercase tracking-wide text-black">{badge}</h4>
-            </div>
-          </motion.article>
-        );
-
-        if (href) {
-          return (
-            <Link key={title} href={href} className="block">
-              {content}
-            </Link>
+                ) : (
+                  <span className="text-sm text-gray-500">{imageLabel}</span>
+                )}
+              </motion.div>
+              {/* Project copy */}
+              <div className="space-y-3 sm:space-y-4">
+                <h3 className="text-2xl font-bold text-black sm:text-3xl">
+                  {title}
+                </h3>
+                <p className="text-lg leading-relaxed text-gray-600">
+                  {description}
+                </p>
+                <h4 className="text-sm font-semibold tracking-wide text-black uppercase">
+                  {badge}
+                </h4>
+              </div>
+            </motion.article>
           );
-        }
 
-        return <Fragment key={title}>{content}</Fragment>;
-      })}
+          if (href) {
+            return (
+              <Link key={title} href={href} className="block">
+                {content}
+              </Link>
+            );
+          }
+
+          return <Fragment key={title}>{content}</Fragment>;
+        },
+      )}
     </div>
   );
 }
@@ -221,7 +242,9 @@ export default function Home() {
       const navHeight = navElement?.getBoundingClientRect().height ?? 96;
       const navOffset = navHeight + 8;
       const targetPosition =
-        projectsRef.current.getBoundingClientRect().top + window.scrollY - navOffset;
+        projectsRef.current.getBoundingClientRect().top +
+        window.scrollY -
+        navOffset;
 
       projectsControls.stop();
       window.scrollTo({ top: targetPosition, behavior: "smooth" });
@@ -236,7 +259,7 @@ export default function Home() {
         });
       }, 120);
     },
-    [projectsControls]
+    [projectsControls],
   );
 
   // Keep the nav highlight in sync with the current route.
@@ -252,7 +275,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Sticky site navigation */}
-      <nav className="sticky top-0 z-50 w-full py-6 px-8 sm:px-16 flex justify-between items-center bg-gray-50/80 backdrop-blur-md">
+      <nav className="sticky top-0 z-50 flex w-full items-center justify-between bg-gray-50/80 px-8 py-6 backdrop-blur-md sm:px-16">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -305,8 +328,8 @@ export default function Home() {
       </nav>
 
       {/* Hero split layout */}
-      <main className="max-w-7xl mx-auto px-8 sm:px-16 min-h-[80vh] flex items-start pt-16 sm:pt-24 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <main className="mx-auto flex min-h-[80vh] max-w-7xl items-start px-8 pt-16 pb-8 sm:px-16 sm:pt-24">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           {/* Left side - Gradient Circle */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -314,7 +337,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex justify-center lg:justify-start"
           >
-            <GradientOrb className="h-80 w-80 sm:h-96 sm:w-96 rounded-full" />
+            <GradientOrb className="h-80 w-80 rounded-full sm:h-96 sm:w-96" />
           </motion.div>
 
           {/* Right side - Text Content */}
@@ -324,35 +347,37 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="space-y-6"
           >
-            <h1 className="text-3xl sm:text-4xl font-bold text-black tracking-tight">
+            <h1 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
               CORNELIOUS WILLIAMS
             </h1>
-            
-            <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+
+            <div className="space-y-4 text-lg leading-relaxed text-gray-700">
               <p>
-                Hey! My name is Cornelious, a Product Designer 
-                <span className="inline-block ml-1">✌️</span>
+                Hey! My name is Cornelious, a Product Designer
+                <span className="ml-1 inline-block">✌️</span>
               </p>
-              
+
               <p>
                 Im passionate about crafting meaningful{" "}
-                <strong>digital experiences</strong>{" "}
-                focusing on user-centered design. I am currently studying UX Design @{" "}
-                DePaul University in Chicago and Im always looking to solve 
-                problems that make a positive impact.
+                <strong>digital experiences</strong> focusing on user-centered
+                design. I am currently studying UX Design @ DePaul University in
+                Chicago and Im always looking to solve problems that make a
+                positive impact.
               </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8">
+            <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                 className="space-y-1"
               >
-                <h2 className="text-sm font-bold uppercase tracking-wide text-black">
+                <h2 className="text-sm font-bold tracking-wide text-black uppercase">
                   Currently
                 </h2>
-                <p className="text-lg text-gray-600">Product Designer @ DePaul University</p>
+                <p className="text-lg text-gray-600">
+                  Product Designer @ DePaul University
+                </p>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -360,10 +385,12 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
                 className="space-y-1"
               >
-                <h2 className="text-sm font-bold uppercase tracking-wide text-black">
+                <h2 className="text-sm font-bold tracking-wide text-black uppercase">
                   Previously at
                 </h2>
-                <p className="text-lg text-gray-600">Microsoft, Northshore Clinical Lab & Google</p>
+                <p className="text-lg text-gray-600">
+                  Microsoft, Northshore Clinical Lab & Google
+                </p>
               </motion.div>
             </div>
           </motion.div>
@@ -376,23 +403,27 @@ export default function Home() {
         animate={projectsControls}
         initial={false}
         id="projects"
-        className="w-full px-8 sm:px-16 pt-12 pb-16 lg:-mt-12"
+        className="w-full px-8 pt-12 pb-16 sm:px-16 lg:-mt-12"
       >
         <ProjectCards />
       </motion.section>
 
       {/* Footer links */}
-      <footer className="w-full px-8 sm:px-16 py-8 bg-white">
+      <footer className="w-full bg-white px-8 py-8 sm:px-16">
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <span className="text-gray-600 text-sm">made by cornelious</span>
+          <span className="text-sm text-gray-600">made by cornelious</span>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
             {SOCIAL_LINKS.map(({ label, href }) => (
-              <a key={label} href={href} className="nav-pill-inline text-gray-600 hover:text-black">
+              <a
+                key={label}
+                href={href}
+                className="nav-pill-inline text-gray-600 hover:text-black"
+              >
                 {label}
               </a>
             ))}
           </div>
-          <span className="text-gray-600 text-sm">©2025</span>
+          <span className="text-sm text-gray-600">©2025</span>
         </div>
       </footer>
     </div>

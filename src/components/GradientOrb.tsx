@@ -18,7 +18,13 @@ export default function GradientOrb({ className }: GradientOrbProps) {
     >
       <svg className="absolute inset-0 h-0 w-0">
         <defs>
-          <filter id="orb-glass-effect" x="-50%" y="-50%" width="200%" height="200%">
+          <filter
+            id="orb-glass-effect"
+            x="-50%"
+            y="-50%"
+            width="200%"
+            height="200%"
+          >
             <feTurbulence baseFrequency="0.005" numOctaves="1" result="noise" />
             <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.3" />
             <feColorMatrix
