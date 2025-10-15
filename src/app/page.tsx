@@ -38,7 +38,7 @@ function ProjectCards() {
       title: "Identity Research Labs",
       description:
         "Supporting identity-focused research through building a website that's accessible, and contributing design support for digital knowledge management at DePaul's Identity Research Lab.",
-      badge: "Research Assistant · Shipped · 2025",
+      badge: "Research Assistant · 2025",
       imageLabel: "First Draft Interface Image",
       imageSrc: "/projects/identity-research-labs/Idrl-banner.jpg",
     },
@@ -54,7 +54,7 @@ function ProjectCards() {
       title: "Sneaker Access",
       description:
         "A web app that allows users to discover and access exclusive sneaker releases through a seamless and engaging user experience. Users gain access to premium sneakers by utilizing our automated checkout bot service for a fee, ensuring they secure the shoes they want during high-demand drops.",
-      badge: "E-commerce · Shipped · 2019",
+      badge: "Lead Product Designer · E-commerce · Shipped · 2019",
       imageLabel: "Sneaker Access",
       imageSrc: "/projects/sneaker-access/sneaker-access-header.jpg",
     },
@@ -78,7 +78,7 @@ function ProjectCards() {
       title: "Supreme Access",
       description:
         "Designed a membership-driven commerce flow that balances hype moments with inclusive access, focusing on real-time drops and community-driven storytelling.",
-      badge: "Lead Designer · Front-end Development · 2019",
+      badge: "Lead Product Designer · Front-end Development · Shipped · 2019",
       imageLabel: "Supreme Access Interface",
       imageSrc: "/projects/supreme-access/supreme-access-header.JPG",
     },
@@ -94,7 +94,7 @@ function ProjectCards() {
       title: "Hypremium",
       description:
         "Built and led a sneaker resale platform from the ground up, focusing on user experience, trust, and seamless transactions in the sneaker community.",
-      badge: "Founder · Product Designer · 2018",
+      badge: "Founder Product Designer · E-commerce · 2018",
       imageLabel: "Hypremium Drops Interface",
       imageSrc: "/projects/hypremium/hypremium-header.gif",
     },
