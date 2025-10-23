@@ -300,9 +300,9 @@ export default function SneakerAccess() {
               Prototyping the new home experience
             </h2>
             <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
-              Replaced the fragmented wireframe grid with a focused prototype
-              that highlights how the redesigned home brings releases,
-              testimonials, and account tools into one glanceable layout.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              viverra, nisl a laoreet sodales, ipsum erat laoreet risus, sed
+              vestibulum urna turpis non mi.
             </p>
           </div>
 
@@ -349,11 +349,11 @@ export default function SneakerAccess() {
               <div className="mb-8 flex h-96 w-full items-center justify-center rounded-3xl bg-gray-400">
                 <span className="text-sm text-gray-600">Before Interface</span>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-red-500">Before</h3>
-                <p className="text-lg leading-relaxed text-gray-600">
-                  The arrows next to &quot;View All products&quot; was confusing
-                  to users. Users would click the arrows thinking the next page
+             <div className="space-y-4">
+               <h3 className="text-2xl font-bold text-red-500">Before</h3>
+               <p className="text-lg leading-relaxed text-gray-600">
+                 The arrows next to &quot;View All products&quot; was confusing
+                 to users. Users would click the arrows thinking the next page
                   would load.
                 </p>
               </div>
